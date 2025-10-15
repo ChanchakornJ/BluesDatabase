@@ -1123,4 +1123,29 @@ JOIN OrdersDetail od ON o.OrderID  = od.OrderID
 JOIN E_Book eb       ON od.EBookID = eb.EBookID
 WHERE od.EBookID IS NOT NULL;
 
+SELECT
+    er.E_ReceiptNumber,
+    er.OrderID,
+    er.Payee,
+    m.Email AS MemberEmail,
+    er.PaymentMethod,
+    er.TotalAmount
+FROM E_Receipt er
+         LEFT JOIN Orders o ON er.OrderID = o.OrderID
+         LEFT JOIN Member m ON o.MemberID = m.MemberID
+
+UNION
+
+SELECT
+    er.E_ReceiptNumber,
+    er.OrderID,
+    er.Payee,
+    m.Email AS MemberEmail,
+    er.PaymentMethod,
+    er.TotalAmount
+FROM E_Receipt er
+         RIGHT JOIN Orders o ON er.OrderID = o.OrderID
+         RIGHT JOIN Member m ON o.MemberID = m.MemberID;
+
+
 
