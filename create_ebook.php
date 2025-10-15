@@ -29,9 +29,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     $stmt->bind_param(
         "sisssssssis",
-        $isbn, $price, $title, $author, $genre,
-        $translator, $illustrator, $pub_date,
-        $edition, $printing, $contract_exp
+        $isbn,
+        $price,
+        $title,
+        $author,
+        $genre,
+        $translator,
+        $illustrator,
+        $pub_date,
+        $edition,
+        $printing,
+        $contract_exp
     );
 
     if ($stmt->execute()) {
@@ -100,7 +108,7 @@ $conn->close();
         background: white;
         padding: 30px 40px;
         border-radius: 12px;
-        box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
         text-align: left;
     }
 

@@ -8,7 +8,8 @@ $result = $conn->query("SELECT * FROM BOOK");
     <h2>Book List</h2>
 
     <form class="search-box" method="GET">
-        <input type="text" name="search" placeholder="Search by title or author" value="<?php echo $_GET['search'] ?? ''; ?>">
+        <input type="text" name="search" placeholder="Search by title or author"
+            value="<?php echo $_GET['search'] ?? ''; ?>">
         <button type="submit">Search</button>
     </form>
 
@@ -46,16 +47,19 @@ $result = $conn->query("SELECT * FROM BOOK");
     </table>
 </div>
 </body>
+
 </html>
 <style>
     .page-container {
         max-width: 900px;
-        margin: 50px auto; /* Centers the whole box */
+        margin: 50px auto;
+        /* Centers the whole box */
         background: #fff;
         border-radius: 12px;
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         padding: 35px;
-        text-align: center; /* centers Book List title */
+        text-align: center;
+        /* centers Book List title */
     }
 
     .page-container h2 {
@@ -86,7 +90,8 @@ $result = $conn->query("SELECT * FROM BOOK");
     /* ✅ Match search button color to header blue */
     .search-box button {
         padding: 10px 20px;
-        background-color: #ef7a12; /* same blue as table header */
+        background-color: #ef7a12;
+        /* same blue as table header */
         color: #fff;
         border: none;
         border-radius: 6px;
@@ -96,7 +101,8 @@ $result = $conn->query("SELECT * FROM BOOK");
     }
 
     .search-box button:hover {
-        background-color: #0b59d0; /* darker blue hover */
+        background-color: #0b59d0;
+        /* darker blue hover */
     }
 
     /* Table styling stays the same */
@@ -106,7 +112,8 @@ $result = $conn->query("SELECT * FROM BOOK");
         margin-top: 15px;
     }
 
-    th, td {
+    th,
+    td {
         text-align: left;
         padding: 10px;
         border-bottom: 1px solid #ddd;
@@ -125,6 +132,4 @@ $result = $conn->query("SELECT * FROM BOOK");
     tr:hover {
         background-color: #e6f0ff;
     }
-
 </style>
-

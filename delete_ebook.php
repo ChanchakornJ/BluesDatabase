@@ -93,7 +93,7 @@ $conn->close();
     } else {
         echo "<h2>Delete Book</h2>";
     }
-    ?>    <?php echo $message; ?>
+    ?> <?php echo $message; ?>
 
     <!-- Step 1: Choose Type -->
     <?php if (!$type): ?>
@@ -149,9 +149,11 @@ $conn->close();
             <?php endif; ?>
 
             <form method="POST">
-                <input type="hidden" name="id" value="<?php echo ($type == "ebook" ? $bookData["EBookID"] : $bookData["BookID"]); ?>">
+                <input type="hidden" name="id"
+                    value="<?php echo ($type == "ebook" ? $bookData["EBookID"] : $bookData["BookID"]); ?>">
                 <input type="hidden" name="type" value="<?php echo $type; ?>">
-                <button type="submit" name="deleteBook" onclick="return confirm('⚠️ Are you sure you want to delete this record?')">
+                <button type="submit" name="deleteBook"
+                    onclick="return confirm('⚠️ Are you sure you want to delete this record?')">
                     Delete <?php echo ($type == "ebook" ? 'E-Book' : 'Book'); ?>
                 </button>
             </form>
@@ -160,79 +162,172 @@ $conn->close();
 </div>
 
 <style>
-    body { font-family: Arial, sans-serif; background-color: #f4f4f4; margin: 0; padding: 0; }
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
     .container {
         max-width: 550px;
         margin: 60px auto;
         background: white;
         padding: 35px 40px;
         border-radius: 15px;
-        box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
         text-align: center;
     }
+
     .container h2 {
         margin-bottom: 25px;
         border-bottom: 3px solid #1a73e8;
         display: inline-block;
         padding-bottom: 6px;
     }
-    .choice-box { display: flex; flex-direction: column; gap: 20px; }
+
+    .choice-box {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
     .choice {
-        width: 100%; padding: 20px;
-        font-size: 20px; font-weight: bold;
-        border: none; border-radius: 10px;
-        cursor: pointer; color: white;
+        width: 100%;
+        padding: 20px;
+        font-size: 20px;
+        font-weight: bold;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        color: white;
         transition: transform 0.1s, background-color 0.3s;
     }
-    .choice.book { background-color: #1a73e8; }
-    .choice.ebook { background-color: #34a853; }
-    .choice:hover { transform: scale(1.02); opacity: 0.9; }
-    .form-box { text-align: left; }
-    .form-box label { font-weight: bold; }
-    .form-box input[type="text"] {
-        width: 100%; padding: 10px;
-        border: 1px solid #ccc; border-radius: 6px;
-        margin-top: 5px; margin-bottom: 10px;
-    }
-    .form-box button {
-        width: 100%; padding: 12px;
-        border: none; border-radius: 6px;
+
+    .choice.book {
         background-color: #1a73e8;
-        color: white; font-size: 16px;
-        cursor: pointer; transition: background-color 0.3s;
     }
-    .form-box button:hover { background-color: #0b59d0; }
+
+    .choice.ebook {
+        background-color: #34a853;
+    }
+
+    .choice:hover {
+        transform: scale(1.02);
+        opacity: 0.9;
+    }
+
+    .form-box {
+        text-align: left;
+    }
+
+    .form-box label {
+        font-weight: bold;
+    }
+
+    .form-box input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        margin-top: 5px;
+        margin-bottom: 10px;
+    }
+
+    .form-box button {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 6px;
+        background-color: #1a73e8;
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+    .form-box button:hover {
+        background-color: #0b59d0;
+    }
+
     .results-box {
-        margin-top: 20px; text-align: left;
-        background: #f8f9fa; border: 1px solid #ddd; border-radius: 8px; padding: 15px;
+        margin-top: 20px;
+        text-align: left;
+        background: #f8f9fa;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 15px;
     }
+
     .result-item {
-        border-bottom: 1px solid #ddd; padding: 8px 0; display: flex; justify-content: space-between; align-items: center;
+        border-bottom: 1px solid #ddd;
+        padding: 8px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
+
     .result-item button {
-        background-color: #1a73e8; color: white; border: none;
-        padding: 6px 12px; border-radius: 6px; cursor: pointer;
+        background-color: #1a73e8;
+        color: white;
+        border: none;
+        padding: 6px 12px;
+        border-radius: 6px;
+        cursor: pointer;
     }
-    .result-item button:hover { background-color: #0b59d0; }
+
+    .result-item button:hover {
+        background-color: #0b59d0;
+    }
+
     .detail-box {
-        background: #f8f9fa; border: 1px solid #ddd;
-        border-radius: 8px; padding: 20px; text-align: left;
+        background: #f8f9fa;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        padding: 20px;
+        text-align: left;
         margin-top: 20px;
     }
-    .detail-box h3 { margin-top: 0; color: #222; }
+
+    .detail-box h3 {
+        margin-top: 0;
+        color: #222;
+    }
+
     .detail-box button {
-        width: 100%; background-color: #e63946; color: white;
-        border: none; padding: 14px 0;
-        font-size: 17px; border-radius: 6px;
-        cursor: pointer; font-weight: bold;
+        width: 100%;
+        background-color: #e63946;
+        color: white;
+        border: none;
+        padding: 14px 0;
+        font-size: 17px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: bold;
         transition: background-color 0.3s, transform 0.1s;
     }
-    .detail-box button:hover { background-color: #c62828; transform: scale(1.02); }
-    .message {
-        margin: 20px auto; padding: 12px;
-        border-radius: 8px; text-align: center;
-        font-weight: bold; width: 90%;
+
+    .detail-box button:hover {
+        background-color: #c62828;
+        transform: scale(1.02);
     }
-    .success { background: #d4edda; color: #155724; }
-    .error { background: #f8d7da; color: #721c24; }
+
+    .message {
+        margin: 20px auto;
+        padding: 12px;
+        border-radius: 8px;
+        text-align: center;
+        font-weight: bold;
+        width: 90%;
+    }
+
+    .success {
+        background: #d4edda;
+        color: #155724;
+    }
+
+    .error {
+        background: #f8d7da;
+        color: #721c24;
+    }
 </style>

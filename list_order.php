@@ -27,7 +27,8 @@ $result = $stmt->get_result();
     <h2>Member Orders</h2>
 
     <form class="search-box" method="GET">
-        <input type="text" name="search" placeholder="Search by member name" value="<?php echo htmlspecialchars($search); ?>">
+        <input type="text" name="search" placeholder="Search by member name"
+            value="<?php echo htmlspecialchars($search); ?>">
         <button type="submit">Search</button>
     </form>
 
@@ -103,7 +104,8 @@ $result = $stmt->get_result();
 
     .search-box button {
         padding: 10px 20px;
-        background-color: #ef7a12; /* same orange as other pages */
+        background-color: #ef7a12;
+        /* same orange as other pages */
         color: #fff;
         border: none;
         border-radius: 6px;
@@ -113,7 +115,8 @@ $result = $stmt->get_result();
     }
 
     .search-box button:hover {
-        background-color: #0b59d0; /* darker blue hover */
+        background-color: #0b59d0;
+        /* darker blue hover */
     }
 
     table {
@@ -122,14 +125,16 @@ $result = $stmt->get_result();
         margin-top: 15px;
     }
 
-    th, td {
+    th,
+    td {
         text-align: left;
         padding: 10px;
         border-bottom: 1px solid #ddd;
     }
 
     th {
-        background-color: #1a73e8; /* same blue as Book List */
+        background-color: #1a73e8;
+        /* same blue as Book List */
         color: white;
         font-weight: normal;
     }

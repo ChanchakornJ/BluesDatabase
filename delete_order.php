@@ -99,7 +99,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST["deleteOrder"])) {
         $conn->commit();
 
         $message = "<div class='message success'>✅ Order ID $orderID and its related records were deleted successfully.</div>";
-
     } catch (Exception $e) {
         $conn->rollback();
         $message = "<div class='message error'>❌ Failed to delete Order ID $orderID: " . $e->getMessage() . "</div>";
@@ -145,7 +144,8 @@ $conn->close();
 
             <form method="POST">
                 <input type="hidden" name="orderID" value="<?php echo $orderData['OrderID']; ?>">
-                <button type="submit" name="deleteOrder" onclick="return confirm('⚠️ Are you sure you want to delete this order? This action cannot be undone.')">
+                <button type="submit" name="deleteOrder"
+                    onclick="return confirm('⚠️ Are you sure you want to delete this order? This action cannot be undone.')">
                     Delete Order
                 </button>
             </form>
@@ -170,7 +170,7 @@ $conn->close();
         background: white;
         padding: 30px 40px;
         border-radius: 15px;
-        box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
     }
 
     .container h2 {
@@ -185,6 +185,7 @@ $conn->close();
     #labelForSearchTerm {
         text-align: left;
     }
+
     .form-box label {
         display: block;
         margin: 8px 0 4px;
@@ -292,4 +293,5 @@ $conn->close();
 </style>
 
 </body>
+
 </html>
