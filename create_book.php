@@ -102,3 +102,58 @@ $conn->close();
 </body>
 
 </html>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+    }
+
+    .container {
+        max-width: 400px;
+        margin: 60px auto;
+        background: white;
+        padding: 30px 40px;
+        border-radius: 12px;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+        text-align: left;
+    }
+
+    .container h2 {
+        text-align: center;
+        margin-bottom: 25px;
+        color: #000;
+    }
+
+    .form-box label {
+        display: block;
+        margin: 8px 0 4px;
+        font-weight: bold;
+    }
+
+    .form-box input {
+        width: 100%;
+        padding: 8px 10px;
+        border: 1px solid #ccc;
+        border-radius: 6px;
+        box-sizing: border-box;
+        margin-bottom: 12px;
+    }
+
+    .form-box button {
+        width: 100%;
+        background-color: #1a73e8;
+        color: white;
+        border: none;
+        padding: 10px;
+        font-size: 16px;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+
+    .form-box button:hover {
+        background-color: #0b59d0;
+    }
+</style>
