@@ -36,7 +36,9 @@ FROM (
     FROM E_Receipt er
     RIGHT JOIN Orders o ON er.OrderID = o.OrderID
     RIGHT JOIN Member m ON o.MemberID = m.MemberID
-) AS final;
+) AS final
+WHERE final.OrderID IS NOT NULL;;
+
 ";
 
 $result = $conn->query($query);

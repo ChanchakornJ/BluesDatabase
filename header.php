@@ -20,6 +20,7 @@
                 <a href="list_book.php">List Books</a>
                 <a href="list_ebook.php">List E-Books</a>
                 <a href="list_order.php">List Orders</a>
+                <a href="list_delivered_erecipe.php">List Derived Books</a>
             </div>
         </div>
 
