@@ -4,7 +4,7 @@ include 'header.php';
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-$conn = new mysqli("localhost", "root", "*31311055Jee", "BookStore");
+$conn = new mysqli("localhost", "root", "", "BookStore");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }

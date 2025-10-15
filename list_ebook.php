@@ -1,6 +1,6 @@
 <?php
 include 'header.php';
-$conn = new mysqli("localhost", "root", "*31311055Jee", "BookStore");
+$conn = new mysqli("localhost", "root", "", "BookStore");
 
 // Handle search
 $search = $_GET['search'] ?? '';

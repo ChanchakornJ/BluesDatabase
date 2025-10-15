@@ -1,7 +1,7 @@
 <?php
 include 'header.php';
 
-$conn = new mysqli("localhost", "root", "*31311055Jee", "BookStore");
+$conn = new mysqli("localhost", "root", "", "BookStore");
 
 $search = $_GET['search'] ?? '';
 $sql = "SELECT 
